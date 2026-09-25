@@ -1,0 +1,1 @@
+Proyecto de prueba para la correcta integración y migración histórica de datos DSP Ñuñoa. Implementación de interfaz para ingreso de datos automáticos a aplicación web.
