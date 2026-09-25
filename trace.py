@@ -3,7 +3,8 @@ import hashlib, random, re
 from datetime import datetime, timedelta, time as dtime
 from sqlalchemy import create_engine, text
 
-engine = create_engine("postgresql+psycopg://postgres:test@localhost:5433/postgres")
+#engine = create_engine("postgresql+psycopg://postgres:test@localhost:5433/postgres")
+engine = create_engine("postgresql+psycopg://neondb_owner:npg_Gmk5Sr0OIRnX@ep-odd-art-b6hq5hcs-pooler.c-2.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
 
 MAPA_COLUMNAS = {
     "NRO": "nro_legado", "ID": "id_legado", "FECHA Y HORA": "fecha_hora",
