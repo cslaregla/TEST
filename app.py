@@ -66,4 +66,4 @@ st.bar_chart(datos["categoria"].value_counts())
 
 mapa = datos.dropna(subset=["latitud", "longitud"]).rename(columns={"latitud": "lat", "longitud": "lon"})
 if not mapa.empty:
-    st.map(mapa[["lat", "lon"]])
+    st.map(mapa[["lat", "lon"]],zoom=12)
