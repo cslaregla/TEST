@@ -3,7 +3,14 @@ from sqlalchemy import text
 
 conn = st.connection("db_prueba", type="sql")
 
-st.header("Prueba de ingreso")
+st.set_page_config(
+    page_title="Planilla de Ingreso",
+    page_icon="./logo.png",
+    initial_sidebar_state="collapsed",
+    layout="wide"
+)
+st.logo("./logo.png",size='large',icon_image="./logo.png")
+st.header("📋 Prueba Planilla de Ingreso")
 
 categorias = conn.query("SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
 cat_nombre = st.selectbox("Categoría", categorias["nombre"])   # fuera del form: se actualiza al instante
