@@ -1,5 +1,7 @@
-import streamlit as st
 from sqlalchemy import text
+import pandas as pd
+import streamlit as st
+import time
 
 conn = st.connection("db_prueba", type="sql")
 
@@ -12,15 +14,32 @@ st.set_page_config(
 st.logo("./logo.png",size='large',icon_image="./logo.png")
 st.header("📋 Prueba Planilla de Ingreso")
 
-categorias = conn.query("SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
+def query_segura(conn,sql,ttl=30,params=None,reintentos=2,espera=2):
+    for intento in range(reintentos + 1):
+        try:
+            return conn.query(sql, ttl=ttl, params=params)
+        except Exception:
+            if intento < reintentos:
+                time.sleep(espera)
+                continue
+        st.warning("La base de datos está despertando. Recarga la página en unos segundos")
+        st.stop()
+
+#categorias = conn.query("SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
+categorias = query_segura(conn,"SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
 cat_nombre = st.selectbox("Categoría", categorias["nombre"])   # fuera del form: se actualiza al instante
 cat_id = int(categorias.loc[categorias["nombre"] == cat_nombre, "id"].iloc[0])
 
-tipos = conn.query(
+# tipos = conn.query(
+#     "SELECT nombre FROM catalogo.tipo_procedimiento WHERE categoria_id = :id ORDER BY nombre",
+#     params={"id": cat_id}, ttl=60
+# )
+# estados = conn.query("SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre", ttl=300)
+tipos = query_segura(conn,
     "SELECT nombre FROM catalogo.tipo_procedimiento WHERE categoria_id = :id ORDER BY nombre",
-    params={"id": cat_id}, ttl=60
+    params={"id": cat_id}
 )
-estados = conn.query("SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre", ttl=300)
+estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre")
 
 with st.form("form_prueba", clear_on_submit=True):
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
@@ -48,22 +67,36 @@ if enviado:
 st.divider()
 st.header("Lo que ve el análisis, justo después")
 
-datos = conn.query("""
+# datos = conn.query("""
+#     SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
+#     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
+#     ORDER BY r.fecha_hora DESC
+# """, ttl=30)
+datos = query_segura(conn,"""
     SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
     ORDER BY r.fecha_hora DESC
-""", ttl=30)
-
-#st.dataframe(datos.head(20))
-datos_tabla = conn.query("""
+""")
+# datos_tabla = conn.query("""
+#     SELECT r.creado_en, r.fecha_hora, c.nombre AS categoria, r.descripcion
+#     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
+#     ORDER BY r.creado_en DESC
+#     LIMIT 20
+# """, ttl=10)
+datos_tabla = query_segura(conn,"""
     SELECT r.creado_en, r.fecha_hora, c.nombre AS categoria, r.descripcion
     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
     ORDER BY r.creado_en DESC
     LIMIT 20
-""", ttl=10)
+""")
+datos_tabla["fecha_hora"] = (
+    pd.to_datetime(datos_tabla["fecha_hora"], utc=True)
+      .dt.tz_convert("America/Santiago")
+      .dt.strftime("%d-%m-%Y %H:%M")
+)
 st.dataframe(datos_tabla, width='stretch', height=400)
 st.bar_chart(datos["categoria"].value_counts())
 
 mapa = datos.dropna(subset=["latitud", "longitud"]).rename(columns={"latitud": "lat", "longitud": "lon"})
 if not mapa.empty:
-    st.map(mapa[["lat", "lon"]],zoom=12)
+    st.map(mapa[["lat", "lon"]],zoom=12, size=30)
