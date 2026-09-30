@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 
 engine = create_engine("postgresql+psycopg://...")
-tabla = pd.read_csv("categorias_tipos.csv", dtype=str)
+tabla = pd.read_csv("categorias_tipos.csv", dtype=str. sep=';', encoding='utf-8')
 
 with engine.begin() as conn:
     for cat in tabla["categoria"].dropna().unique():

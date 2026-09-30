@@ -1,0 +1,978 @@
+tabla;valor
+operador;ALEJANDRO CONTRERAS NAVAS
+operador;ALICIA BRAGEMAN OPAZO
+operador;ANDREA MORALES MUÑOZ
+operador;ANTONIO LOMAS GONZALEZ
+operador;CONSTANZA REBOLLEDO ANDRADE
+operador;DIEGO JOFRÉ CORREA
+operador;JASNINA PARRA LARA
+operador;JORGE BUSTOS CISTERNAS
+operador;JOSE MOLINA VALERIA
+operador;KARLA MELLA MUNZENMAYER
+operador;LILIAN SOTO ASTUDILLO
+operador;MARCELA SEY ALONSO
+operador;MARCOS PONCE LEPE
+operador;PAULINA GONZALEZ VALDEBENITO
+operador;ROXANA DIAZ MEDINA
+operador;XIMENA GODOY CATALAN
+operador;PAULA VARGAS CACERES
+operador;OTRO
+inspector;ANDRES RIVERA GONZÁLEZ
+inspector;ANDRES SILVA CORTÉS
+inspector;ANGELO GAJARDO FICA
+inspector;CARLOS GONZALEZ
+inspector;CARLOS GUZMAN BOEN
+inspector;CARLOS PINTO
+inspector;CARLOS VERA ZUÑIGA
+inspector;CHRISTIAN MATHEWS TORRES
+inspector;CLAUDIA RIVERA GONZALEZ
+inspector;CLAUDIO ESPARZA ESPINOZA
+inspector;CRISTIAN ALVEAR VALENZUELA
+inspector;CRISTIAN GALLO
+inspector;CRISTIAN RUZ FUENTES
+inspector;DANIEL ACUÑA GONZALEZ
+inspector;DAVID VARGAS GALDAMES
+inspector;EDGARD SANDOVAL ZAMORA
+inspector;EDUARDO ISLA REYES
+inspector;ENRIQUE ALVAREZ SANHUEZA
+inspector;ESTEBAN TORO CARRASCO
+inspector;FABIAN ACEVEDO  BUENDIA
+inspector;FABIAN ZUÑIGA VERDUGO
+inspector;FELIPE ZAMORANO SOTO
+inspector;FERMIN MALDONADO BASTIAS
+inspector;FERNANDO ROJO SOTO
+inspector;FERNANDO TORRES
+inspector;FRANCISCO PEREZ ARROYO
+inspector;GABRIEL SAEZ BASSO
+inspector;GERMAN MONTECINOS CELIS
+inspector;GONZALO NAVARRO SALAS
+inspector;GONZALO PARRAGUEZ VARGAS
+inspector;GUSTAVO CONTRERAS
+inspector;HERNAN VILLALOBOS ESCUDERO
+inspector;HUGO CARRASCO
+inspector;IVAN ALVAREZ ESPINOZA
+inspector;JONATHAN SANCHEZ GONZALEZ
+inspector;JORGE HUAIQUICHEO SOTELO
+inspector;JOSE LUIS CARCAMO IBAÑEZ
+inspector;JOSE QUEZADA DONOSO
+inspector;JUAN FARIAS BUSTAMANTE
+inspector;JUAN PABLO HERNANDEZ BERRIOS
+inspector;KAREN MUÑOZ CANDIA
+inspector;LENIN RIFO ESCOBAR
+inspector;LUIS BASSO VERGARA
+inspector;MARIO ALCAIDE
+inspector;MARIO CANDIA ORDENES
+inspector;MARIO ESPINOZA VEGA
+inspector;MAYCOL POBLETE SANCHEZ
+inspector;NELSON VELASQUEZ ALLENDE
+inspector;NORBERTO COLLAO MARIN
+inspector;OSKAR PEÑA VALLEJOS
+inspector;PABLO SOLAR CORTEZ
+inspector;PABLO VELÁSQUEZ GÁLVEZ
+inspector;PAMELA ARANGUIZ CORTES
+inspector;PATRICIO QUIDEQUEO MUÑOZ
+inspector;PATRICIO RAPIMAN HERRERA
+inspector;PATRICIO RIVEROS
+inspector;PATRICIO ZUÑIGA
+inspector;RAFAEL DONOSO DURAN
+inspector;RAUL REBOLLEDO ROJAS
+inspector;RENE HUAIQUIMIL SANTANDER
+inspector;RICARDO PARRA ARMIJO
+inspector;ROBERTO DIAZ FIGUEROA
+inspector;ROBERTO WITTWER
+inspector;RODRIGO MENESES JORQUERA
+inspector;RODRIGO MORALES PALACIOS
+inspector;RODRIGO SOLA
+inspector;SAUL SOTO MARTÍNEZ
+inspector;SEBASTIAN VALDIVIA FLORES
+inspector;SERGIO FARIAS RIVERA
+inspector;VICENTE ROJAS RAMIREZ
+inspector;OTRO
+inspector;NO APLICA
+inspector;NO ASIGNADO
+radiooperador;ANTONIO LOMAS GONZALEZ
+radiooperador;JORGE BUSTOS CISTERNAS
+radiooperador;ROXANA DIAZ MEDINA
+radiooperador;JOSE LUIS MOLINA
+radiooperador;ALEJANDRO CONTRERAS NAVAS
+radiooperador;OTRO
+radiooperador;DIEGO JOFRE
+radiooperador;KARLA MELLA
+radiooperador;ALICIA BRAGEMAN OPAZO
+radiooperador;JASNINA PARRA LARA
+radiooperador;PAULINA GONZALEZ VALDEBENITO
+radiooperador;PAULA VARGAS CACERES
+calle;Abdon Somoza
+calle;Abel Aravena
+calle;Agua Marina
+calle;Agustin Vigorena
+calle;Alberto Baines
+calle;Alberto Ried
+calle;Alcalde Carlos Aldunate E.
+calle;Alcalde Jorge Monckeberg Barros
+calle;Alcaldesa Balbina Vera
+calle;Alcazar
+calle;Alejandro Renjifo
+calle;Alfa
+calle;Almendral
+calle;Alonso De Ercilla
+calle;Alvaro Puga
+calle;Amapolas
+calle;Americo Vespucio
+calle;Anfiteatro Griego
+calle;Angel Cruchaga Santa Maria
+calle;Angel Pino
+calle;Angelmo
+calle;Anibal Aracena Infante
+calle;Anibal Pinto
+calle;Anselmo Aguayo B.
+calle;Antilhue
+calle;Antonio Sechi
+calle;Antonio Varas
+calle;Aristoteles
+calle;Armando Carrera
+calle;No Aplica
+calle;Arquitecto Gabriel Ovalle Valdez
+calle;Artificio
+calle;Arturo Medina
+calle;Arzobispo Fuenzalida
+calle;Atahualpa
+calle;Atica
+calle;Augusto Villanueva
+calle;Av Ossa
+calle;Avalos
+calle;Avenida Italia
+calle;Avenida Sur
+calle;Azapa
+calle;Baden
+calle;Badilla
+calle;Bailen
+calle;Banco De Chile
+calle;Batuco
+calle;Bayona
+calle;Beethoven
+calle;Belmonte
+calle;Bernardo De Amasa
+calle;Beta
+calle;Bollen
+calle;Bremen
+calle;Bretaña
+calle;Brigida Walker
+calle;Brown Norte
+calle;Brown Sur
+calle;Bucalem⁄
+calle;Bucalemu
+calle;Calle
+calle;Calle 11
+calle;Calle 7
+calle;Calle Catorce
+calle;Calle Catorce Y Medio
+calle;Calle Cinco
+calle;Calle Cinco Y Medio
+calle;Calle Cuatro
+calle;Calle Cuatro Y Medio
+calle;Calle Diez
+calle;Calle Doce
+calle;Calle Dos
+calle;Calle Nueva
+calle;Calle Nueve
+calle;Calle Nueve Y Medio
+calle;Calle Ocho
+calle;Calle Once
+calle;Calle Quince
+calle;Calle Seis
+calle;Calle Seis Y Medio
+calle;Calle Siete
+calle;Calle Siete Y Medio
+calle;Calle Trece
+calle;Calle Tres
+calle;Calle Tres Y Medio
+calle;Calle Uno
+calle;Calle Uno Y Medio
+calle;Campo De Deportes
+calle;Campoamor
+calle;Canonico Madariaga
+calle;Capitan Fuentes
+calle;Capitan Ignacio Carrera Pinto
+calle;Capitan Orella
+calle;Carlos Aguirre Luco
+calle;Carlos Besa
+calle;Carlos Dittborn
+calle;Carlos Dittborn Pinto
+calle;Carlos Montt
+calle;Carlos Silva Figueroa
+calle;Carmen Covarrubias
+calle;Carrera Pinto
+calle;Castillo Urizar
+calle;Caupolican
+calle;Cauquenes
+calle;Celerino Pereira
+calle;Cervantes
+calle;Chaca
+calle;Challacollo
+calle;Chanks
+calle;Chilcaya
+calle;Chile-España
+calle;Chiu-Chiu
+calle;Ciceron
+calle;Cirujano Videla
+calle;Clorinda Wilschaw
+calle;Colmo
+calle;Colo-Colo
+calle;Condell
+calle;Conscripto H. Arredondo
+calle;Contramaestre Micalvi
+calle;Cordillera
+calle;Corfu
+calle;Coventry
+calle;Crescente Errazuriz
+calle;Cuadricula A
+calle;Cuadricula B
+calle;Cuadricula C
+calle;Cuesta El Melon
+calle;Curanipe
+calle;Curaumilla
+calle;Dagoberto Godoy
+calle;Delfos
+calle;Diagonal Oriente
+calle;Diagonal Suarez Mujica
+calle;Dichato
+calle;Diecinueve De Abril
+calle;Diego De Almagro
+calle;Diego Sotomayor
+calle;Doctor Agustin Andrade
+calle;Doctor Alejandro Del Rio
+calle;Doctor Guillermo Mann
+calle;Doctor Johow
+calle;Doctor Luis Bisquertt Susarte
+calle;Doctor Mamerto Cadiz
+calle;Doctor Pedro Calvo Barros
+calle;Domingo Fautino Sarmiento
+calle;Domingotoro Herrera
+calle;Duble Almeyda
+calle;Echeñique
+calle;Edificio Consistorial Municipalidad
+calle;Edificio Servicios Públicos Municipalidad
+calle;Eduardo Castillo Velasco
+calle;Eduardo Donoso
+calle;Eduardo Llanos
+calle;El Almendral
+calle;El Ancla
+calle;El Baron
+calle;El Cobre
+calle;El Faro
+calle;El Grumete
+calle;El Mercante
+calle;El Oidor
+calle;El Vigia
+calle;Elias De La Cruz
+calle;Eliecer Parada
+calle;Eliodoro Flores
+calle;Emilia Tellez
+calle;Emilio Vaisse
+calle;Enrique Bravo Labra
+calle;Enrique Richard
+calle;Epiro
+calle;Ernesto Ansart
+calle;Ernesto Courtois
+calle;Escudo De Armas
+calle;Espartero
+calle;Espronceda
+calle;Estacion Pirque
+calle;Estrella Solitaria
+calle;Eudocia Vicuña
+calle;Eudoro Garin
+calle;Eugenio Navarrete Vargas
+calle;Exequiel Fernandez
+calle;Exequiel Figueroa
+calle;Facundo
+calle;Fenelon
+calle;Fernandez Concha
+calle;Fidias
+calle;Florencio Garcia
+calle;Francisco De Paula Taforo
+calle;Francisco De Villagra
+calle;Francisco Meneses
+calle;Francisco Molina
+calle;Francisco Solano Astaburuaga
+calle;Francisco Villagra
+calle;Frontis Estadio Nacional
+calle;Futalelfu
+calle;Galicia
+calle;Gallito
+calle;Garcia Moreno
+calle;Garcia Valenzuela
+calle;Garibaldi
+calle;Gaspar Mora
+calle;Gaspar Villarroel
+calle;General Boonen Rivera
+calle;General Bustamante
+calle;General Dunnam
+calle;General Flores
+calle;General Francisco Miranda
+calle;General Gorostiaga
+calle;General Jose Artigas
+calle;General Luis Marchant Gonzalez
+calle;General Pedro Pablo Dartnell
+calle;Gerona
+calle;Gir”N De Las Palmas
+calle;Girardi
+calle;Giron De Las Palmas
+calle;Granada
+calle;Grecia
+calle;Guadalquivir
+calle;Guarquen
+calle;Guggenhein
+calle;Guillermo Francke
+calle;Haendel
+calle;Hamburgo
+calle;Hannover
+calle;Heriberto Covarrubias
+calle;Hernan Cortes
+calle;Hernando De Aguirre
+calle;Hijuelas
+calle;Holanda
+calle;Horcon
+calle;Humberto Trucco Franzani
+calle;Hyatt
+calle;Incaguasi
+calle;Ines Palma
+calle;Irarrazaval
+calle;Islas Charos
+calle;Itata
+calle;Jarilla
+calle;Jean Sibelius
+calle;Joaquin Cabezas
+calle;Joaquõn Walker Martinez
+calle;Jorge Batiste
+calle;Jorge Canning
+calle;Jorge Washington
+calle;Jose Diego Benavente
+calle;Jose Domingo Cañas
+calle;Jose Gabriel Rojas
+calle;Jose Ignacio Vergara
+calle;Jose Joaquin De Mora
+calle;Jose Luis Araneda
+calle;Jose Manuel Infante
+calle;Jose Maria Narbona
+calle;Jose Pedro Alessandri
+calle;Joselito
+calle;Juan Diaz
+calle;Juan Enrique Concha
+calle;Juan Francisco Gonzalez
+calle;Juan Godoy
+calle;Juan Jose Cañas
+calle;Juan Moya Morales
+calle;Juan N. Jara
+calle;Juan Sabaj
+calle;Julio Cordero Bustamante
+calle;Julio Prado
+calle;Julio Zegers
+calle;Justo Ugarte
+calle;La Aduana
+calle;La Calera
+calle;La Concordia
+calle;La Cruz
+calle;La Giralda
+calle;La Proa
+calle;La Quilla
+calle;La Rada
+calle;La Resaca
+calle;La Tirana
+calle;La Verbena
+calle;Laguna Verde
+calle;Las Algas
+calle;Las Aralias
+calle;Las Brumas
+calle;Las Dalias
+calle;Las Dichas
+calle;Las Docas
+calle;Las Encinas
+calle;Las Gardenias
+calle;Las Marejadas
+calle;Las Olas
+calle;Las Palmeras
+calle;Las Regatas
+calle;Las Rocas
+calle;Las Tablas
+calle;Las Taclas
+calle;Las Tormentas
+calle;Las Torpederas
+calle;Las Veronicas
+calle;Lastenia Valdivieso
+calle;Leon Weinstein
+calle;Leopoldo Urrutia
+calle;Licenciado Las Peñas
+calle;Limache
+calle;Lincoyan
+calle;Linzor
+calle;Lluta
+calle;Lo Encalada
+calle;Lo Plaza
+calle;Lo Vasquez
+calle;Loa
+calle;Los Agustinos
+calle;Los Alerces
+calle;Los Aliaga
+calle;Los Almendros
+calle;Los Arrecifes
+calle;Los Avellanos
+calle;Los Cerezos
+calle;Los Chincoles
+calle;Los Corales
+calle;Los Corteses
+calle;Los Estucadores
+calle;Los Girasoles
+calle;Los Jardines
+calle;Los Jazmines
+calle;Los Labradores
+calle;Los Marineros
+calle;Los Navios
+calle;Los Pescadores
+calle;Los Pozos
+calle;Los Salvavidas
+calle;Los Talaveras
+calle;Los Tres Antonios
+calle;Los Veleros
+calle;Lucero
+calle;Luis Alberto Heiremans
+calle;Luis Beltran
+calle;Luis Bernardin
+calle;Luis Pereira
+calle;Luis Uribe
+calle;Maitencillo
+calle;Malaquias Concha
+calle;Managua
+calle;Manolete
+calle;Manuel Antonio Matta
+calle;Manuel Barrios
+calle;Manuel Covarrubias
+calle;Manuel De Salas
+calle;Manuel Montt
+calle;Manutara
+calle;Marathon
+calle;Marchant Pereira
+calle;Maria Celeste
+calle;Maria De Iglesias
+calle;Mario Marin Leiva
+calle;Matta Oriente
+calle;Maximo Bach
+calle;Maximo Jeria
+calle;Metro Chile-España
+calle;Miguel Claro
+calle;Misolonghi
+calle;Monseñor Eyzaguirre
+calle;Montenegro
+calle;Mujica
+calle;Multicancha Corfu / Grecia
+calle;Nama
+calle;Nan
+calle;Nancy
+calle;Natalio Stein
+calle;Nelson
+calle;Nicanor Marambio
+calle;Nicaragua
+calle;Nilahue
+calle;Noria
+calle;Nueva
+calle;Nueva 12
+calle;Nueva Dos
+calle;Nueva Gustavo Carreño
+calle;Nueva Hannover
+calle;Nueva Seminario
+calle;Nueva Sucre
+calle;Nueva Sur
+calle;Nueva Uno
+calle;Nuncio Laghi
+calle;Nuñez De Arce
+calle;Ñuble
+calle;Ñuñoa
+calle;Obispo Orrego
+calle;Olmue
+calle;Ortuzar
+calle;Ottawa
+calle;Pachica
+calle;Palqui
+calle;Panama
+calle;Panimavida
+calle;Panulcillo
+calle;Parque Botanico
+calle;Parque Bustamante
+calle;Parque German Pico Cañas
+calle;Parque Juan Xxiii
+calle;Parque Pucara
+calle;Parque Ramon Cruz
+calle;Parque San Esteban De Hungria
+calle;Parque San Eugenio
+calle;Parque Santa Julia
+calle;Pasaje 1
+calle;Pasaje 10
+calle;Pasaje 11
+calle;Pasaje 12
+calle;Pasaje 13
+calle;Pasaje 14
+calle;Pasaje 15
+calle;Pasaje 16
+calle;Pasaje 17
+calle;Pasaje 18
+calle;Pasaje 19
+calle;Pasaje 2
+calle;Pasaje 20
+calle;Pasaje 21
+calle;Pasaje 22
+calle;Pasaje 23
+calle;Pasaje 24
+calle;Pasaje 25
+calle;Pasaje 26
+calle;Pasaje 27
+calle;Pasaje 28
+calle;Pasaje 29
+calle;Pasaje 3
+calle;Pasaje 30
+calle;Pasaje 31
+calle;Pasaje 32
+calle;Pasaje 33
+calle;Pasaje 34
+calle;Pasaje 35
+calle;Pasaje 36
+calle;Pasaje 37
+calle;Pasaje 4
+calle;Pasaje 5
+calle;Pasaje 6
+calle;Pasaje 7
+calle;Pasaje 8
+calle;Pasaje 9
+calle;Pasaje 95
+calle;Pasaje A
+calle;Pasaje Aldunate
+calle;Pasaje Andes
+calle;Pasaje Arcadia
+calle;Pasaje Arturo Medina
+calle;Pasaje Avalos
+calle;Pasaje B
+calle;Pasaje Castillo
+calle;Pasaje Contreras
+calle;Pasaje Eduardo Castillo Velasco
+calle;Pasaje Epiro
+calle;Pasaje Folo
+calle;Pasaje Graciela
+calle;Pasaje Hamburgo 365
+calle;Pasaje Juan Moya Morales
+calle;Pasaje Laconia
+calle;Pasaje Las Encinas
+calle;Pasaje Line
+calle;Pasaje Lo Plaza
+calle;Pasaje Longitudinal
+calle;Pasaje Los Albañiles
+calle;Pasaje Los Alerces
+calle;Pasaje Los Almendros
+calle;Pasaje Los Carpinteros
+calle;Pasaje Los Cerezos
+calle;Pasaje Los Enfierradores
+calle;Pasaje Los Hojalateros
+calle;Pasaje Los Jardines
+calle;Pasaje Los Jornaleros
+calle;Pasaje Los Vidrieros
+calle;Pasaje Marta
+calle;Pasaje Nueva Los Alerces
+calle;Pasaje Parõs
+calle;Pasaje Pellin
+calle;Pasaje San Fernando
+calle;Pasaje San Juan
+calle;Pasaje Santa Julia
+calle;Pasaje Simon Bolivar
+calle;Pasaje Suarez Mujica
+calle;Pasaje Sucre
+calle;Pasaje Talca
+calle;Pasaje Transversal
+calle;Pasaje Trejo
+calle;Pasaje Tres Antonios
+calle;Pasaje Trihue
+calle;Pascual Baburiza
+calle;Peatones 13
+calle;Peatones 16
+calle;Peatones 20
+calle;Peatones 22
+calle;Peatones 23
+calle;Peatones 24
+calle;Peatones 25
+calle;Peatones 26
+calle;Peatones 27
+calle;Peatones 28
+calle;Peatones 29
+calle;Peatones 30
+calle;Peatones Quince
+calle;Peatones Treinta
+calle;Peatones Veintiuno
+calle;Pedro Aguirre Cerda
+calle;Pedro De Oña
+calle;Pedro De Valdivia
+calle;Pedro H. Ling
+calle;Pedro Lautaro Ferrer
+calle;Pedro Lobos
+calle;Pedro Marin
+calle;Pedro Montt
+calle;Pedro Rico
+calle;Pedro Solis
+calle;Pedro Torres
+calle;Pelluhue
+calle;Peñablanca
+calle;Pericles
+calle;Pichidangui
+calle;Pilmaiquen
+calle;Pitama
+calle;Platon
+calle;Playa Ancha
+calle;Playa Dos
+calle;Playa Uno
+calle;Plaza 4 De Septiembre
+calle;Plaza Armenia
+calle;Plaza Augusto D´Halmar
+calle;Plaza Av. Sur
+calle;Plaza Egaña
+calle;Plaza El Bombero
+calle;Plaza Elias De La Cruz
+calle;Plaza Enrique Bunster
+calle;Plaza Fanor Blanco
+calle;Plaza Guillermo Franke
+calle;Plaza Holanda
+calle;Plaza Jorge Monckeberg
+calle;Plaza Lillo
+calle;Plaza Los Guindos
+calle;Plaza Los Navios
+calle;Plaza Melvin Jones
+calle;Plaza Ñuñoa Norte
+calle;Plaza Ñuñoa Sur
+calle;Plaza Pedro Lautaro Ferrer
+calle;Plaza Pedro Montt
+calle;Plaza Pericles
+calle;Plaza Sucre
+calle;Plaza Zañartu
+calle;Poeta Washington Espejo
+calle;Pozos
+calle;Premio Nobel
+calle;Presidente Jose Batlle Ordoñez
+calle;Presidente Madero
+calle;Profesor Juan Gomez Millas
+calle;Profesor Rodolfo Lenz
+calle;Pucara
+calle;Puchacai
+calle;Puchuncavi
+calle;Pueblo Hundido
+calle;Pumanque
+calle;Punitaqui
+calle;Puquios
+calle;Quillagua
+calle;Quilpue
+calle;Quinquimo
+calle;Quintay
+calle;Quirihue
+calle;Quivolgo
+calle;Rafael Prado
+calle;Ramon Carnicer
+calle;Ramon Cruz Montt
+calle;Ramon Escobar
+calle;Ramon Puelma
+calle;Rapel
+calle;Raul Cisterna Solis
+calle;Raul Silva Castro
+calle;Regina Pacis
+calle;Reina Del Mar
+calle;Remigio Canales
+calle;Rengo
+calle;Republica De Israel
+calle;Residencial Seminario
+calle;Ricardo Lyon
+calle;Ritoque
+calle;Rivadavia
+calle;Rodrigo De Araya
+calle;Roman Diaz
+calle;Romeo Salinas
+calle;Rosita Renard
+calle;Rossemblut
+calle;Rotonda Rodrigo De Araya
+calle;Rucapiren
+calle;Salitre
+calle;Salomon Dorfman
+calle;Salvador
+calle;Salvador Reyes
+calle;Salvador Sur
+calle;San Andres
+calle;San Eugenio
+calle;San Felipe
+calle;San Fernando
+calle;San Jorge
+calle;San Juan De Luz
+calle;San Pedro
+calle;Santa Elvira
+calle;Santa Ema
+calle;Santa Julia
+calle;Santo Toribio
+calle;Sargento Candelaria
+calle;Sargento Luis Navarrete
+calle;Sargento Menadier
+calle;Sauzal
+calle;Seminario
+calle;Senador Jaime Guzman E.
+calle;Silvio Guerrero
+calle;Simon Bolivar
+calle;Socaire
+calle;Socrates
+calle;Suarez Mujica
+calle;Sucre
+calle;Suecia
+calle;Taltal
+calle;Tamaya
+calle;Tanume
+calle;Tapihue
+calle;Tatio
+calle;Tegualda
+calle;Teniente Compton
+calle;Teniente Montt
+calle;Til Til
+calle;Tirua
+calle;Tobalaba
+calle;Totoral
+calle;Trapihue
+calle;Trumao
+calle;Tucapel
+calle;Tunga
+calle;Union Literaria
+calle;Valencia
+calle;Valparaiso
+calle;Varsovia
+calle;Vasco De Gama
+calle;Via Catorce
+calle;Via Catorce Y Medio
+calle;Via Diez
+calle;Via Diez Y Medio
+calle;Via Doce
+calle;Via Doce Y Medio
+calle;Via Nueve
+calle;Via Ocho
+calle;Via Ocho Y Medio
+calle;Via Once
+calle;Via Siete
+calle;Via Trece
+calle;Vicente Reyes
+calle;Vicuña Mackenna
+calle;Villaseca
+calle;Villoslava
+calle;Virgilio
+calle;Virginio Arias
+calle;Volcan Miño
+calle;Williams Rebolledo
+calle;Zañartu
+calle;Otra
+canal_ingreso;1445
+canal_ingreso;EXTERNO
+canal_ingreso;INTERNO
+canal_ingreso;JEFATURA
+canal_ingreso;OPERADOR CÁMARAS
+canal_ingreso;PROALERT
+canal_ingreso;SOSAFE
+canal_ingreso;WHATSAPP
+canal_ingreso;OTROS
+canal_ingreso;INSPECTOR EN TERRENO
+movil;ALUMBRADO PÚBLICO
+movil;ARBOLADO
+movil;CAMION SUL
+movil;EMERGENCIAS
+movil;PATRULLA MIXTA
+movil;RBWK62
+movil;RBWK63
+movil;RBWK64
+movil;RBWK65
+movil;RBWK66
+movil;RBWK68
+movil;RBWK69
+movil;RBWK70
+movil;RBWK71
+movil;RBWK72
+movil;RBWK73
+movil;RBWK74
+movil;RBWK75
+movil;RBWK76
+movil;RBWK77
+movil;RBWK78
+movil;RBWL16
+movil;RBWL17
+movil;RBWL18
+movil;RCFD74
+movil;SERVICIO BC
+movil;SERVICIO FEI PRIMERA SECCION
+movil;SERVICIO FEI SEGUNDA SECCION
+movil;SERVICIO FEI TERCERA SECCION
+movil;No Aplica
+movil;SERVICIO VIGIA
+movil;SJSB82
+movil;SJTT77
+movil;STSB72
+movil;STSB82
+movil;SXCD58
+movil;TKDF44
+movil;TKDF48
+movil;TKDF53
+movil;TKDF70
+movil;TKDF75
+movil;TLDY12
+movil;VIGÍA COMUNAL
+movil;VIGÍA ORIENTE
+movil;VIGÍA PONIENTE
+movil;XPC037
+movil;XPC039
+movil;XPC040
+movil;XPC041
+movil;XPC042
+movil;XPC043
+movil;XPC044
+movil;XPC045
+movil;XPC046
+movil;XPC047
+movil;XPC048
+movil;XPC049
+movil;XPC050
+movil;XPC051
+movil;XPC052
+movil;VRSC 37
+movil;VRSC 36
+movil;STPK57
+movil;SHYH78
+movil;VFJB94
+movil;RCFD94
+movil;RBWK12
+movil;VWPX-48
+movil;VWPX-65
+movil;VWPX-54
+movil;VWPX-76
+movil;CM-92
+movil;SKPK97
+movil;M-PX67
+movil;M-67
+movil;M-PX51
+movil;M-55
+movil;M-56
+movil;VWPX-55
+movil;PX-68
+movil;VWPX-67
+movil;C-87
+movil;CM-36
+movil;VKLK87
+movil;VWPX-77
+movil;M-54
+movil;M-PX59
+movil;VWPX-71
+movil;VXKK-87
+movil;VWPX-53
+movil;VWPX-59
+movil;VWPX-51
+movil;VXLK-87
+movil;VWPX-70
+movil;VXLJ-69
+movil;VXLJ-69
+movil;SXCD59
+movil;VWPX-51
+movil;VWPX-53
+movil;VWPX-54
+movil;VWPX-55
+movil;VWPX-56
+movil;VWPX-59
+movil;VWPX-60
+movil;VWPX-62
+movil;VWPX-63
+movil;VWPX-64
+movil;VWPX-65
+movil;VWPX-67
+movil;VWPX-68
+movil;VWPX-69
+movil;VWPX-70
+movil;VWPX-71
+movil;VWPX-72
+movil;VWPX-76
+movil;VXLK-91
+movil;VXLL-18
+movil;ZQD-89
+movil;ZQD-90
+movil;ZQD-91
+movil;ZQD-92
+movil;ZQD-93
+movil;ZQD-94
+movil;ZQD-95
+movil;ZQD-96
+movil;ZQD-97
+movil;ZQD-98
+movil;ZQD-99
+movil;ZWB-56
+movil;ZWB-57
+movil;ZWB-58
+movil;ZWB-59
+movil;ZWB-60
+comisaria;33° Comisaría
+comisaria;18° Comisaría
+comisaria;No hubo
+tipo_recurrente;INTERNO
+tipo_recurrente;JEFATURA
+tipo_recurrente;VECINO/A
+tipo_recurrente;NO APLICA
+tipo_recurrente;OTRA INSTITUCIÓN
+tipo_recurrente;OTRO
+cuadrante;Nro. 118
+cuadrante;Nro. 119
+cuadrante;Nro. 120
+cuadrante;Nro. 121
+cuadrante;Nro. 129
+cuadrante;Nro. 130
+cuadrante;Nro. 131
+cuadrante;Nro. 132
+cuadrante;Nro. 133
+cuadrante;No aplica
+lugar_tipo;Banco
+lugar_tipo;Casa Habitación
+lugar_tipo;Centro de salud
+lugar_tipo;Centro Comercial/Stripcenter
+lugar_tipo;Local Comercial/Restaurant
+lugar_tipo;Edificio Habitacional
+lugar_tipo;Empresa
+lugar_tipo;Establecimiento Educacional
+lugar_tipo;Estadio
+lugar_tipo;Metro
+lugar_tipo;Via Pública/Espacios Públicos
+lugar_tipo;Otras Instituciones
+lugar_tipo;Otro Lugar
+lugar_tipo;No Aplica
+seremi;MTT
+seremi;Salud
+seremi;Trabajo
+seremi;Vivienda y Urbanismo
+seremi;No aplica
+area_recurrente;Ambiente
+area_recurrente;Bomberos
+area_recurrente;Carabineros
+area_recurrente;Departamento de obras
+area_recurrente;Desastres
+area_recurrente;Inspección
+area_recurrente;Medio Ambiente
+area_recurrente;PDI
+area_recurrente;Planificación
+area_recurrente;Riesgos
+area_recurrente;SAMU
+area_recurrente;Transito
+area_recurrente;Otra institución
+area_recurrente;Otros municipios
+area_recurrente;Otros
+area_recurrente;No Aplica
+apoyo_asistencia;ABC ( asisten los 3 , Ambulancia, bomberos, carabineros)
+apoyo_asistencia;AB ( Ambulancia, bomberos)
+apoyo_asistencia;AC ( Ambulancia , Carabineros)
+apoyo_asistencia;BC ( Bomberos , Carabineros)
+apoyo_asistencia;Ambulancia
+apoyo_asistencia;Bomberos
+apoyo_asistencia;Carabineros
+apoyo_asistencia;PDI
+apoyo_asistencia;No hubo
+finalizacion;FINALIZADO
+finalizacion;PENDIENTE POR CAMBIO DE TURNO
+finalizacion;OTRO MOTIVO
+finalizacion;DERIVADO A OTRO DEPARTAMENTO MUNICIPAL
+estado_procedimiento;ASIGNADO
+estado_procedimiento;NO ASIGNADO

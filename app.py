@@ -37,14 +37,16 @@ cat_id = int(categorias.loc[categorias["nombre"] == cat_nombre, "id"].iloc[0])
 # estados = conn.query("SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre", ttl=300)
 tipos = query_segura(conn,
     "SELECT nombre FROM catalogo.tipo_procedimiento WHERE categoria_id = :id ORDER BY nombre",
-    params={"id": cat_id}
+    params={"id": cat_id}, ttl=60
 )
-estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre")
+estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre",ttl=300)
 
 with st.form("form_prueba", clear_on_submit=True):
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
     estado = st.selectbox("Estado", estados["nombre"])
     descripcion = st.text_area("Descripción")
+    calle = st.text_input("Calle")
+    numeracion = st.text_input("Numeración")
     col1, col2 = st.columns(2)
     lat = col1.number_input("Latitud", value=-33.45, format="%.6f")
     lon = col2.number_input("Longitud", value=-70.65, format="%.6f")
@@ -76,7 +78,7 @@ datos = query_segura(conn,"""
     SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
     ORDER BY r.fecha_hora DESC
-""")
+""",ttl=30)
 # datos_tabla = conn.query("""
 #     SELECT r.creado_en, r.fecha_hora, c.nombre AS categoria, r.descripcion
 #     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
@@ -88,7 +90,7 @@ datos_tabla = query_segura(conn,"""
     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
     ORDER BY r.creado_en DESC
     LIMIT 20
-""")
+""",ttl=10)
 datos_tabla["fecha_hora"] = (
     pd.to_datetime(datos_tabla["fecha_hora"], utc=True)
       .dt.tz_convert("America/Santiago")
