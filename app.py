@@ -2,6 +2,8 @@ from sqlalchemy import text
 import pandas as pd
 import streamlit as st
 import time
+from geopy.geocoders import ArcGIS
+import re
 
 conn = st.connection("db_prueba", type="sql")
 
@@ -24,7 +26,42 @@ def query_segura(conn,sql,ttl=30,params=None,reintentos=2,espera=2):
                 continue
         st.warning("La base de datos está despertando. Recarga la página en unos segundos")
         st.stop()
+#######################################################################################
+geolocator = ArcGIS(user_agent="geocoder_app")
+def geocodificar(calle, numeracion, interseccion):
 
+    calle = str(calle).strip() if pd.notna(calle) else ''
+    numeracion = str(numeracion).strip() if pd.notna(numeracion) else ''
+    interseccion = str(interseccion).strip() if pd.notna(interseccion) else ''
+    
+    # Caso 1: Hay intersección
+    if calle and interseccion:
+        direccion = f"{calle} & {interseccion}"
+    
+    # Caso 2: Hay numeración
+    elif calle and numeracion:
+        direccion = f"{calle} {numeracion}"
+    
+    # Caso 3: Solo calle
+    elif calle and not numeracion and not interseccion:
+        direccion = f"{calle}"
+    comuna = 'Ñuñoa, Chile'
+    try:
+        if not direccion or direccion.strip() == '':
+            return None,None
+        
+        ubicacion = geolocator.geocode(f"{direccion}, {comuna}", timeout=10)
+        
+        if ubicacion:
+            # Retornar como tupla o string
+            return ubicacion.latitude,ubicacion.longitude
+        else:
+            return None,None
+    
+    except Exception as e:
+        print(f"Error: {e}")
+        return None,None
+#######################################################################################
 #categorias = conn.query("SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
 categorias = query_segura(conn,"SELECT id, nombre FROM catalogo.categoria ORDER BY nombre", ttl=300)
 cat_nombre = st.selectbox("Categoría", categorias["nombre"])   # fuera del form: se actualiza al instante
@@ -40,19 +77,19 @@ tipos = query_segura(conn,
     params={"id": cat_id}, ttl=60
 )
 estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre",ttl=300)
-
+df = pd.read_csv("catalogos_simples.csv", sep=";")
+lcalles = df.loc[df["tabla"] == "calle", "valor"].tolist()
 with st.form("form_prueba", clear_on_submit=True):
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
     estado = st.selectbox("Estado", estados["nombre"])
     descripcion = st.text_area("Descripción")
-    calle = st.text_input("Calle")
-    numeracion = st.text_input("Numeración")
-    col1, col2 = st.columns(2)
-    lat = col1.number_input("Latitud", value=-33.45, format="%.6f")
-    lon = col2.number_input("Longitud", value=-70.65, format="%.6f")
+    calle = st.selectbox("Calle", lcalles, index=None,placeholder='Ingrese una calle')
+    numeracion = st.number_input("Numeración", min_value=1,step=1,value=None)
+    calle_esq = st.selectbox("Calle que Intersecta", lcalles, index=None,placeholder='De ser intersección, ingrese una calle')
     enviado = st.form_submit_button("Guardar")
 
 if enviado:
+    lat,lon = geocodificar(calle,numeracion,calle_esq)
     with conn.session as s:
         s.execute(text("""
             INSERT INTO core.reporte
