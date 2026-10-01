@@ -1,1 +1,4 @@
 .streamlit
+cargar_categorias_tipos.py
+cargar_catalogos_simples.py
+cargar_muestra.py

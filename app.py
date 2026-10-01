@@ -77,15 +77,14 @@ tipos = query_segura(conn,
     params={"id": cat_id}, ttl=60
 )
 estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre",ttl=300)
-df = pd.read_csv("catalogos_simples.csv", sep=";")
-lcalles = df.loc[df["tabla"] == "calle", "valor"].tolist()
+calles = query_segura(conn, "SELECT nombre FROM catalogo.calle ORDER BY nombre", ttl=300 )
 with st.form("form_prueba", clear_on_submit=True):
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
     estado = st.selectbox("Estado", estados["nombre"])
     descripcion = st.text_area("Descripción")
-    calle = st.selectbox("Calle", lcalles, index=None,placeholder='Ingrese una calle')
+    calle = st.selectbox("Calle", calles["nombre"], index=None,placeholder='Ingrese una calle')
     numeracion = st.number_input("Numeración", min_value=1,step=1,value=None)
-    calle_esq = st.selectbox("Calle que Intersecta", lcalles, index=None,placeholder='De ser intersección, ingrese una calle')
+    calle_esq = st.selectbox("Calle que Intersecta", calles["nombre"], index=None,placeholder='De ser intersección, ingrese una calle')
     enviado = st.form_submit_button("Guardar")
 
 if enviado:
