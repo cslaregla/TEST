@@ -76,65 +76,124 @@ tipos = query_segura(conn,
     "SELECT nombre FROM catalogo.tipo_procedimiento WHERE categoria_id = :id ORDER BY nombre",
     params={"id": cat_id}, ttl=60
 )
-estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre",ttl=300)
+
 calles = query_segura(conn, "SELECT nombre FROM catalogo.calle ORDER BY nombre", ttl=300 )
+canales = query_segura(conn, "SELECT nombre FROM catalogo.canal_ingreso ORDER BY nombre", ttl=300 )
+operadores = query_segura(conn, "SELECT nombre FROM catalogo.operador ORDER BY nombre", ttl=300 )
+tipos_recurrentes = query_segura(conn, "SELECT nombre FROM catalogo.tipo_recurrente ORDER BY nombre", ttl=300 )
+areas_recurrentes = query_segura(conn, "SELECT nombre FROM catalogo.area_recurrente ORDER BY nombre", ttl=300 )
+lugares_tipos = query_segura(conn, "SELECT nombre FROM catalogo.lugar_tipo ORDER BY nombre", ttl=300 )
+cuadrantes = query_segura(conn, "SELECT numero FROM catalogo.cuadrante ORDER BY numero", ttl=300 )
+radiooperadores = query_segura(conn, "SELECT nombre FROM catalogo.radiooperador ORDER BY nombre", ttl=300 )
+moviles = query_segura(conn, "SELECT codigo FROM catalogo.movil ORDER BY codigo", ttl=300 )
+inspectores = query_segura(conn, "SELECT nombre FROM catalogo.inspector ORDER BY nombre", ttl=300 )
+estados = query_segura(conn,"SELECT nombre FROM catalogo.estado_procedimiento ORDER BY nombre",ttl=300)
+finalizaciones = query_segura(conn,"SELECT nombre FROM catalogo.finalizacion ORDER BY nombre",ttl=300)
+apoyos = query_segura(conn,"SELECT nombre FROM catalogo.apoyo_asistencia ORDER BY nombre",ttl=300)
+comisarias = query_segura(conn,"SELECT nombre FROM catalogo.comisaria ORDER BY nombre",ttl=300)
+seremis = query_segura(conn,"SELECT nombre FROM catalogo.seremi ORDER BY nombre",ttl=300)
+
 with st.form("form_prueba", clear_on_submit=True):
+    operador = st.selectbox("Operador", operadores["nombre"], index=None, placeholder='Nombre Operador')
+    canal_ing = st.selectbox("Canal de Ingreso", canales["nombre"], index=None, placeholder='Seleccione la vía de ingreso')
+    tipo_recurrente = st.selectbox("Tipo de Recurrente", tipos_recurrentes["nombre"], index=None, placeholder='Tipo de Recurrente')
+    area_recurrente = st.selectbox("Area o Sección del Recurrente", areas_recurrentes["nombre"], index=None, placeholder='Area del Recurrente')
+    nombre_recurrente = st.text_input("NOMBRE DEL RECURRENTE")
+    telefono_recurrente = st.text_input("TELEFONO DEL RECURRENTE")
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
-    estado = st.selectbox("Estado", estados["nombre"])
     descripcion = st.text_area("Descripción")
     calle = st.selectbox("Calle", calles["nombre"], index=None,placeholder='Ingrese una calle')
     numeracion = st.number_input("Numeración", min_value=1,step=1,value=None)
     calle_esq = st.selectbox("Calle que Intersecta", calles["nombre"], index=None,placeholder='De ser intersección, ingrese una calle')
-    enviado = st.form_submit_button("Guardar")
+    lugar_tipo = st.selectbox("Lugar Público/Privado", lugares_tipos["nombre"], index=None, placeholder='Tipo de Lugar')
+    aclaratoria_ubicacion = st.text_input("Aclaratoria de la ubicación")
+    cuadrante = st.selectbox("Cuadrante", cuadrantes["numero"], index=None, placeholder='Cuadrante')
+    radiooperador = st.selectbox("Radioperador de Turno", radiooperadores["nombre"], index=None, placeholder='Radioperador')
+    movil = st.selectbox("Número de Móvil", moviles["codigo"], index=None, placeholder='Nro. de Móvil')
+    inspector = st.selectbox("Inspector Asignado", inspectores["nombre"], index=None, placeholder='Inspector Asignado')
+    estado = st.selectbox("Estado", estados["nombre"],index=None, placeholder='¿Cuál es el estado del procedimiento?')
+    hora_asignacion = 0
+    hora_arribo = 0
+    hora_termino = 0
+    informe = st.text_input("INFORME")
+    finalizacion = st.selectbox("Finalización", finalizaciones["nombre"],index=None, placeholder='Finalización')
+    apoyo_asistencia = st.selectbox("Apoyo o Asistencia", apoyos["nombre"],index=None, placeholder='Apoyo o asistencia')
+    comisaria = st.selectbox("Comisaría", comisarias["nombre"],index=None, placeholder='Comisaría')
+    seremi = st.selectbox("Seremi", seremis["nombre"],index=None, placeholder='Seremi')
+    observaciones = st.text_input("OBSERVACIONES")
+    connotacion = st.text_input("Connotación")
+    enviado = st.form_submit_button("GUARDAR REPORTE")
 
 if enviado:
     lat,lon = geocodificar(calle,numeracion,calle_esq)
     with conn.session as s:
         s.execute(text("""
             INSERT INTO core.reporte
-                (fecha_hora, categoria_id, tipo_procedimiento_id, estado_id, descripcion, latitud, longitud, creado_por)
-            VALUES (now(), :cat_id,
+                (fecha_hora,
+                operador_id,
+                canal_ingreso_id,
+                tipo_recurrente_id,
+                area_recurrente_id,
+                nombre_recurrente,
+                telefono_recurrente,
+                categoria_id, 
+                tipo_procedimiento_id,
+                descripcion,
+                calle_id,
+                numeracion,
+                calle_interseccion_id,
+                lugar_tipo_id,
+                aclaratoria_ubicacion,
+                cuadrante_id,
+                radiooperador_id,
+                movil_id,
+                inspector_id,
+                estado_id,
+                informe,
+                finalizacion_id,
+                apoyo_asistencia_id,
+                comisaria_id,
+                seremi_id,
+                observaciones,
+                connotacion,
+                latitud,
+                longitud,
+                creado_por)
+            VALUES 
+                (now(),
+                (SELECT id FROM catalogo.operador WHERE nombre = :operador),
+                (SELECT id FROM catalogo.canal_ingreso WHERE nombre = :canal_ing),
+                (SELECT id FROM catalogo.tipo_recurrente WHERE nombre = :tipo_recurrente),
+                (SELECT id FROM catalogo.area_recurrente WHERE nombre = :area_recurrente),
+                :nombre_recurrente,
+                :telefono_recurrente,
+                :cat_id,
                 (SELECT id FROM catalogo.tipo_procedimiento WHERE nombre = :tipo AND categoria_id = :cat_id),
+                :desc,
+                (SELECT id FROM catalogo.calle WHERE nombre = :calle),
+                :numeracion,
+                (SELECT id FROM catalogo.calle WHERE nombre = :calle_esq),
+                (SELECT id FROM catalogo.lugar_tipo WHERE nombre = :lugar_tipo),
+                :aclaratoria_ubicacion,
+                (SELECT id FROM catalogo.cuadrante WHERE numero = :cuadrante),
+                (SELECT id FROM catalogo.radiooperador WHERE nombre = :radiooperador),
+                (SELECT id FROM catalogo.movil WHERE codigo = :movil),
+                (SELECT id FROM catalogo.inspector WHERE nombre = :inspector),
                 (SELECT id FROM catalogo.estado_procedimiento WHERE nombre = :estado),
-                :desc, :lat, :lon, 'prueba_streamlit')
-        """), dict(cat_id=cat_id, tipo=tipo, estado=estado, desc=descripcion, lat=lat, lon=lon))
+                :informe,
+                (SELECT id FROM catalogo.finalizacion WHERE nombre = :finalizacion),
+                (SELECT id FROM catalogo.apoyo_asistencia WHERE nombre = :apoyo_asistencia),
+                (SELECT id FROM catalogo.comisaria WHERE nombre = :comisaria),
+                (SELECT id FROM catalogo.seremi WHERE nombre = :seremi),
+                :observaciones,
+                :connotacion,
+                :lat, 
+                :lon,
+                'prueba_streamlit')
+        """), dict(cat_id=cat_id, operador=operador, canal_ing=canal_ing, tipo_recurrente=tipo_recurrente, area_recurrente=area_recurrente, nombre_recurrente=nombre_recurrente, 
+                   telefono_recurrente=telefono_recurrente, tipo=tipo, desc=descripcion, calle=calle, numeracion=numeracion, calle_esq=calle_esq, lugar_tipo=lugar_tipo,
+                   aclaratoria_ubicacion=aclaratoria_ubicacion, cuadrante=cuadrante, radiooperador=radiooperador, movil=movil, inspector=inspector, estado=estado, informe=informe, finalizacion=finalizacion,
+                   apoyo_asistencia=apoyo_asistencia, comisaria=comisaria, seremi=seremi, observaciones=observaciones, connotacion=connotacion, lat=lat, lon=lon))
         s.commit()
     st.cache_data.clear()
-    st.success("Guardado — revisa la tabla, el gráfico y el mapa de abajo")
-
-st.divider()
-st.header("Lo que ve el análisis, justo después")
-
-# datos = conn.query("""
-#     SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
-#     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
-#     ORDER BY r.fecha_hora DESC
-# """, ttl=30)
-datos = query_segura(conn,"""
-    SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
-    FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
-    ORDER BY r.fecha_hora DESC
-""",ttl=30)
-# datos_tabla = conn.query("""
-#     SELECT r.creado_en, r.fecha_hora, c.nombre AS categoria, r.descripcion
-#     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
-#     ORDER BY r.creado_en DESC
-#     LIMIT 20
-# """, ttl=10)
-datos_tabla = query_segura(conn,"""
-    SELECT r.creado_en, r.fecha_hora, c.nombre AS categoria, r.descripcion
-    FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id
-    ORDER BY r.creado_en DESC
-    LIMIT 20
-""",ttl=10)
-datos_tabla["fecha_hora"] = (
-    pd.to_datetime(datos_tabla["fecha_hora"], utc=True)
-      .dt.tz_convert("America/Santiago")
-      .dt.strftime("%d-%m-%Y %H:%M")
-)
-st.dataframe(datos_tabla, width='stretch', height=400)
-st.bar_chart(datos["categoria"].value_counts())
-
-mapa = datos.dropna(subset=["latitud", "longitud"]).rename(columns={"latitud": "lat", "longitud": "lon"})
-if not mapa.empty:
-    st.map(mapa[["lat", "lon"]],zoom=12, size=30)
+    st.success("Guardado — revisa la página de visualización para ver los cambios.")
