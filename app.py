@@ -112,22 +112,19 @@ with st.form("form_prueba", clear_on_submit=True):
     movil = st.selectbox("Número de Móvil", moviles["codigo"], index=None, placeholder='Nro. de Móvil')
     inspector = st.selectbox("Inspector Asignado", inspectores["nombre"], index=None, placeholder='Inspector Asignado')
     estado = st.selectbox("Estado", estados["nombre"],index=None, placeholder='¿Cuál es el estado del procedimiento?')
-    hora_asignacion = 0
-    hora_arribo = 0
-    hora_termino = 0
-    informe = st.text_input("INFORME")
-    finalizacion = st.selectbox("Finalización", finalizaciones["nombre"],index=None, placeholder='Finalización')
-    apoyo_asistencia = st.selectbox("Apoyo o Asistencia", apoyos["nombre"],index=None, placeholder='Apoyo o asistencia')
+    #informe = st.text_input("INFORME")
+    #finalizacion = st.selectbox("Finalización", finalizaciones["nombre"],index=None, placeholder='Finalización')
+    #apoyo_asistencia = st.selectbox("Apoyo o Asistencia", apoyos["nombre"],index=None, placeholder='Apoyo o asistencia')
     comisaria = st.selectbox("Comisaría", comisarias["nombre"],index=None, placeholder='Comisaría')
     seremi = st.selectbox("Seremi", seremis["nombre"],index=None, placeholder='Seremi')
-    observaciones = st.text_input("OBSERVACIONES")
-    connotacion = st.text_input("Connotación")
+    #observaciones = st.text_input("OBSERVACIONES")
+    #connotacion = st.text_input("Connotación")
     enviado = st.form_submit_button("GUARDAR REPORTE")
 
 if enviado:
     lat,lon = geocodificar(calle,numeracion,calle_esq)
     with conn.session as s:
-        s.execute(text("""
+        nuevo_id = s.execute(text("""
             INSERT INTO core.reporte
                 (fecha_hora,
                 operador_id,
@@ -149,13 +146,8 @@ if enviado:
                 movil_id,
                 inspector_id,
                 estado_id,
-                informe,
-                finalizacion_id,
-                apoyo_asistencia_id,
                 comisaria_id,
                 seremi_id,
-                observaciones,
-                connotacion,
                 latitud,
                 longitud,
                 creado_por)
@@ -180,20 +172,16 @@ if enviado:
                 (SELECT id FROM catalogo.movil WHERE codigo = :movil),
                 (SELECT id FROM catalogo.inspector WHERE nombre = :inspector),
                 (SELECT id FROM catalogo.estado_procedimiento WHERE nombre = :estado),
-                :informe,
-                (SELECT id FROM catalogo.finalizacion WHERE nombre = :finalizacion),
-                (SELECT id FROM catalogo.apoyo_asistencia WHERE nombre = :apoyo_asistencia),
                 (SELECT id FROM catalogo.comisaria WHERE nombre = :comisaria),
                 (SELECT id FROM catalogo.seremi WHERE nombre = :seremi),
-                :observaciones,
-                :connotacion,
                 :lat, 
                 :lon,
                 'prueba_streamlit')
+            RETURNING id
         """), dict(cat_id=cat_id, operador=operador, canal_ing=canal_ing, tipo_recurrente=tipo_recurrente, area_recurrente=area_recurrente, nombre_recurrente=nombre_recurrente, 
                    telefono_recurrente=telefono_recurrente, tipo=tipo, desc=descripcion, calle=calle, numeracion=numeracion, calle_esq=calle_esq, lugar_tipo=lugar_tipo,
-                   aclaratoria_ubicacion=aclaratoria_ubicacion, cuadrante=cuadrante, radiooperador=radiooperador, movil=movil, inspector=inspector, estado=estado, informe=informe, finalizacion=finalizacion,
-                   apoyo_asistencia=apoyo_asistencia, comisaria=comisaria, seremi=seremi, observaciones=observaciones, connotacion=connotacion, lat=lat, lon=lon))
+                   aclaratoria_ubicacion=aclaratoria_ubicacion, cuadrante=cuadrante, radiooperador=radiooperador, movil=movil, inspector=inspector, estado=estado,
+                   comisaria=comisaria, seremi=seremi, lat=lat, lon=lon)).scalar()
         s.commit()
     st.cache_data.clear()
-    st.success("Guardado — revisa la página de visualización para ver los cambios.")
+    st.success(f"Guardado. FOLIO: {nuevo_id} — revisa la página de visualización.")
