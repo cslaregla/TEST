@@ -22,6 +22,21 @@ def query_segura(conn,sql,ttl=30,params=None,reintentos=2,espera=2):
 conn = st.connection("db_prueba", type="sql")
 st.header("💾 Visualización Planilla de Ingreso")
 
+## Título y botones en una fila ##
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button("Nuevo Reporte", key="nav_new", width='stretch'):
+        st.switch_page("app.py")
+
+with col2:
+    if st.button("Actualizar Reporte", key="nav_updt", width='stretch'):
+        st.switch_page("pages/1_Actualizar_reporte.py")
+
+with col3:
+    if st.button("Visualización", key="nav_view", width='stretch'):
+        st.switch_page("pages/2_Vista.py")
+
 datos = query_segura(conn,"""
     SELECT r.fecha_hora, c.nombre AS categoria, r.latitud, r.longitud
     FROM core.reporte r JOIN catalogo.categoria c ON c.id = r.categoria_id

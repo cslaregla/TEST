@@ -16,6 +16,21 @@ st.set_page_config(
 st.logo("./logo.png",size='large',icon_image="./logo.png")
 st.header("📋 Prueba Planilla de Ingreso")
 
+## Título y botones en una fila ##
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button("Nuevo Reporte", key="nav_new", width='stretch'):
+        st.switch_page("app.py")
+
+with col2:
+    if st.button("Actualizar Reporte", key="nav_updt", width='stretch'):
+        st.switch_page("pages/1_Actualizar_reporte.py")
+
+with col3:
+    if st.button("Visualización", key="nav_view", width='stretch'):
+        st.switch_page("pages/2_Vista.py")
+
 def query_segura(conn,sql,ttl=30,params=None,reintentos=2,espera=2):
     for intento in range(reintentos + 1):
         try:
@@ -94,29 +109,45 @@ comisarias = query_segura(conn,"SELECT nombre FROM catalogo.comisaria ORDER BY n
 seremis = query_segura(conn,"SELECT nombre FROM catalogo.seremi ORDER BY nombre",ttl=300)
 
 with st.form("form_prueba", clear_on_submit=True):
-    operador = st.selectbox("Operador", operadores["nombre"], index=None, placeholder='Nombre Operador')
-    canal_ing = st.selectbox("Canal de Ingreso", canales["nombre"], index=None, placeholder='Seleccione la vía de ingreso')
-    tipo_recurrente = st.selectbox("Tipo de Recurrente", tipos_recurrentes["nombre"], index=None, placeholder='Tipo de Recurrente')
-    area_recurrente = st.selectbox("Area o Sección del Recurrente", areas_recurrentes["nombre"], index=None, placeholder='Area del Recurrente')
-    nombre_recurrente = st.text_input("NOMBRE DEL RECURRENTE")
-    telefono_recurrente = st.text_input("TELEFONO DEL RECURRENTE")
+    operador = st.selectbox("Operador", operadores["nombre"], index=None)
+    canal_ing = st.selectbox("Vía/Canal de Ingreso", canales["nombre"], index=None)
+    f1, f2 = st.columns(2)
+    with f1:
+        tipo_recurrente = st.selectbox("Tipo de Recurrente", tipos_recurrentes["nombre"], index=None)
+    with f2:
+        area_recurrente = st.selectbox("Area o Sección del Recurrente", areas_recurrentes["nombre"], index=None)
+    f3,f4 = st.columns(2)
+    with f3:
+        nombre_recurrente = st.text_input("Nombre del Recurrente")
+    with f4:
+        telefono_recurrente = st.text_input("Teléfono del Recurrente")
     tipo = st.selectbox("Tipo de procedimiento", tipos["nombre"] if not tipos.empty else ["(sin tipos aún)"])
-    descripcion = st.text_area("Descripción")
-    calle = st.selectbox("Calle", calles["nombre"], index=None,placeholder='Ingrese una calle')
-    numeracion = st.number_input("Numeración", min_value=1,step=1,value=None)
-    calle_esq = st.selectbox("Calle que Intersecta", calles["nombre"], index=None,placeholder='De ser intersección, ingrese una calle')
+    descripcion = st.text_area("Descripción del Procedimiento")
+    f5,f6,f7 = st.columns(3)
+    with f5:
+        calle = st.selectbox("Calle", calles["nombre"], index=None,placeholder='Ingrese una calle')
+    with f6:
+        numeracion = st.number_input("Numeración", min_value=1,step=1,value=None, help="Dejar en blanco si es una intersección")
+    with f7:
+        calle_esq = st.selectbox("Calle que Intersecta", calles["nombre"], index=None,placeholder='De ser intersección, ingrese una calle')
     lugar_tipo = st.selectbox("Lugar Público/Privado", lugares_tipos["nombre"], index=None, placeholder='Tipo de Lugar')
     aclaratoria_ubicacion = st.text_input("Aclaratoria de la ubicación")
-    cuadrante = st.selectbox("Cuadrante", cuadrantes["numero"], index=None, placeholder='Cuadrante')
-    radiooperador = st.selectbox("Radioperador de Turno", radiooperadores["nombre"], index=None, placeholder='Radioperador')
-    movil = st.selectbox("Número de Móvil", moviles["codigo"], index=None, placeholder='Nro. de Móvil')
-    inspector = st.selectbox("Inspector Asignado", inspectores["nombre"], index=None, placeholder='Inspector Asignado')
+    cuadrante = st.selectbox("Cuadrante", cuadrantes["numero"], index=None)
+    f8, f9 = st.columns(2)
+    with f8:
+        radiooperador = st.selectbox("Radioperador de Turno", radiooperadores["nombre"], index=None)
+    with f9:
+        movil = st.selectbox("Número de Móvil", moviles["codigo"], index=None)
+    inspector = st.selectbox("Inspector Asignado", inspectores["nombre"], index=None)
     estado = st.selectbox("Estado", estados["nombre"],index=None, placeholder='¿Cuál es el estado del procedimiento?')
     #informe = st.text_input("INFORME")
     #finalizacion = st.selectbox("Finalización", finalizaciones["nombre"],index=None, placeholder='Finalización')
     #apoyo_asistencia = st.selectbox("Apoyo o Asistencia", apoyos["nombre"],index=None, placeholder='Apoyo o asistencia')
-    comisaria = st.selectbox("Comisaría", comisarias["nombre"],index=None, placeholder='Comisaría')
-    seremi = st.selectbox("Seremi", seremis["nombre"],index=None, placeholder='Seremi')
+    f10, f11 = st.columns(2)
+    with f10:
+        comisaria = st.selectbox("Comisaría", comisarias["nombre"],index=None)
+    with f11:
+        seremi = st.selectbox("Seremi", seremis["nombre"],index=None)
     #observaciones = st.text_input("OBSERVACIONES")
     #connotacion = st.text_input("Connotación")
     enviado = st.form_submit_button("GUARDAR REPORTE")
