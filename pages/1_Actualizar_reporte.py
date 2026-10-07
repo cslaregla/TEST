@@ -46,7 +46,7 @@ st.subheader("Buscar reporte")
 modo = st.radio("Buscar por", ["Folio", "Fecha y operador"], horizontal=True)
 
 if modo == "Folio":
-    folio = st.number_input("Folio", min_value=1, step=1, format="%d")
+    folio = st.number_input("Folio", min_value=1, step=1, format="%d", value=None)
     if st.button("Buscar"):
         st.session_state["candidatos"] = query_segura("""
             SELECT r.id, r.fecha_hora, r.descripcion, c.nombre AS categoria

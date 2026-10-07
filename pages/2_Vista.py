@@ -59,8 +59,8 @@ st.dataframe(
             timezone="America/Santiago")
     },
     width='stretch', height=400)
-st.bar_chart(datos["categoria"].value_counts())
+st.bar_chart(datos["categoria"].value_counts(),color="#c92305")
 
 mapa = datos.dropna(subset=["latitud", "longitud"]).rename(columns={"latitud": "lat", "longitud": "lon"})
 if not mapa.empty:
-    st.map(mapa[["lat", "lon"]],zoom=12, size=30)
+    st.map(mapa[["lat", "lon"]], zoom=12, size=30)
